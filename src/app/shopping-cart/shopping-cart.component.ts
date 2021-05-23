@@ -35,21 +35,13 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   getTotalPrice(item: ShoppingCartItem) {
-    if (item.product.onSale) {
-      return item.quantity * +item.product.salePrice;
-    } else {
-      return item.quantity * +item.product.costPrice;
-    }
+    return item.quantity * +item.product.costPrice;
   }
 
   getOrderSummary() {
     this.subTotal = 0;
     for (const i of this.data) {
-      if (i.product.onSale) {
-        this.subTotal = this.subTotal + +i.product.salePrice * i.quantity;
-      } else {
-        this.subTotal = this.subTotal + +i.product.costPrice * i.quantity;
-      }
+      this.subTotal = this.subTotal + +i.product.costPrice * i.quantity;
     }
     this.tax = (this.subTotal * this.taxPercentage) / 100;
     this.total = this.subTotal + this.shippingFee + this.tax;
