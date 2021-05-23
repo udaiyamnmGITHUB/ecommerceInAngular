@@ -1,16 +1,10 @@
 [{
-  "name": "Category 1",
-  "redirect": "Category 1"
+  "name": "Formalwear",
+  "redirect": "Formalwear"
 }, {
-  "name": "Category 2",
-  "redirect": "Category 2"
+  "name": "Casualwear",
+  "redirect": "Casualwear"
 }, {
-  "name": "Category 3",
-  "redirect": "Category 3"
-}, {
-  "name": "Category 4",
-  "redirect": "Category 4"
-}, {
-  "name": "Category 5",
-  "redirect": "Category 5"
+  "name": "Footwear",
+  "redirect": "Footwear"
 }]

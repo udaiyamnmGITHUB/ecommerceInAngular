@@ -1,34 +1,33 @@
 [{
-    "name": "Menu 1",
+    "name": "Women",
     "hasChildren": true,
     "children": [{
-      "name": "Category 1",
-      "redirect": "Category 1"
+      "name": "Formalwear",
+      "redirect": "Formalwear"
     }, {
-      "name": "Category 2",
-      "redirect": "Category 2"
+      "name": "Casualwear",
+      "redirect": "Casualwear"
     }, {
-      "name": "Category 3",
-      "redirect": "Category 3"
-    }, {
-      "name": "Category 4",
-      "redirect": "Category 4"
-    }, {
-      "name": "Category 5",
-      "redirect": "Category 5"
+      "name": "Footwear",
+      "redirect": "Footwear"
     }]
   },
   {
-    "name": "Menu 2",
-    "hasChildren": false,
-    "redirect": "empty"
-  },
+    "name": "Men",
+    "hasChildren": true,
+    "children": [{
+      "name": "Formalwear",
+      "redirect": "Formalwear"
+    }, {
+      "name": "Casualwear",
+      "redirect": "Casualwear"
+    }, {
+      "name": "Footwear",
+      "redirect": "Footwear"
+    }]
+  }, 
   {
-    "name": "Menu 3",
-    "hasChildren": false,
-    "redirect": "empty"
-  }, {
-    "name": "Menu 4",
+    "name": "feature-1",
     "hasChildren": false,
     "redirect": "empty"
   }, {
