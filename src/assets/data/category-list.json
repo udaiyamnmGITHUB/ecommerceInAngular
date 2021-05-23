@@ -1,18 +1,26 @@
 [
   {
-    "name": "Womenformalwear",
-    "redirect": "Womenformalwear"
+    "name": "womenformalwear",
+    "redirect": "womenformalwear"
   },
   {
-    "name": "Menformalwear",
-    "redirect": "Menformalwear"
+    "name": "menformalwear",
+    "redirect": "menformalwear"
   },
   {
-    "name": "Casualwear",
-    "redirect": "Casualwear"
+    "name": "womencasualwear",
+    "redirect": "womencasualwear"
+  },
+  {
+    "name": "mencasualwear",
+    "redirect": "mencasualwear"
   },
   {
     "name": "womenfootwear",
     "redirect": "womenfootwear"
+  },
+  {
+    "name": "menfootwear",
+    "redirect": "menfootwear"
   }
 ]

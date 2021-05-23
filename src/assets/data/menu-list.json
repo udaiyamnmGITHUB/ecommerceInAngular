@@ -2,11 +2,11 @@
     "name": "Women",
     "hasChildren": true,
     "children": [{
-      "name": "formalwear",
-      "redirect": "Womenformalwear"
+      "name": "Formalwear",
+      "redirect": "womenformalwear"
     }, {
       "name": "Casualwear",
-      "redirect": "Casualwear"
+      "redirect": "womencasualwear"
     }, {
       "name": "Footwear",
       "redirect": "womenfootwear"
@@ -17,13 +17,13 @@
     "hasChildren": true,
     "children": [{
       "name": "formalwear",
-      "redirect": "Menformalwear"
+      "redirect": "menformalwear"
     }, {
       "name": "Casualwear",
-      "redirect": "Casualwear"
+      "redirect": "mencasualwear"
     }, {
       "name": "Footwear",
-      "redirect": "Footwear"
+      "redirect": "menfootwear"
     }]
   }, 
   {

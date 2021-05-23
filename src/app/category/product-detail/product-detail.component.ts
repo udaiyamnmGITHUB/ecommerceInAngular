@@ -59,8 +59,6 @@ export class ProductDetailComponent implements OnInit {
     ];
   }
 
-
-
   quantityOnChange(event: number) {
     console.log('quantity value', event);
     this.quantity = event;
