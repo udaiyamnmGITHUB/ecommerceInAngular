@@ -1,9 +1,10 @@
-[{
+[
+  {
     "id": "wf1",
     "name": "Bird Print Dress",
-    "description": "Bird Print Dress - women formal wear",
+    "description": "Bird Print Dress - Women's formal wear",
     "detail": "Fugiat commodo voluptate magna aliqua officia. Non cupidatat id non officia velit nisi nulla velit ad qui reprehenderit cupidatat. Ea ex nostrud eiusmod qui aute sunt mollit ad ut commodo pariatur sit. Enim sit occaecat pariatur dolor tempor reprehenderit aute. Minim consequat consectetur tempor reprehenderit eiusmod. Aliqua commodo occaecat velit eu.\n\nPariatur nisi quis aute proident deserunt enim nulla culpa. Reprehenderit et culpa id eiusmod velit pariatur est dolor anim commodo dolor. Nisi proident fugiat excepteur aliquip exercitation non ullamco anim elit. Occaecat voluptate dolore dolore aute ullamco sint velit culpa ad et. Consectetur ut consequat laboris dolor non magna officia amet anim Lorem est laborum. Consequat minim ad tempor ullamco sit et.",
-    "category": "Formalwear",
+    "category": "Womenformalwear",
     "img": "../assets/images/women/formal/bird-print-black/img1.png",
     "gallery": [
       "../assets/images/women/formal/bird-print-black/img2.png"
@@ -37,9 +38,9 @@
   {
     "id": "wf2",
     "name": "Mid Twist Cut-Out Dress",
-    "description": "Mid Twist Cut-Out Dress - women formal wea",
+    "description": "Mid Twist Cut-Out Dress - Women's formal wear",
     "detail": "Reprehenderit elit pariatur mollit fugiat anim fugiat Lorem officia reprehenderit do commodo commodo. Id nulla est consequat magna dolore Lorem. Mollit eu occaecat dolor minim aute veniam. Aliquip exercitation eu ea ullamco eiusmod ullamco fugiat cupidatat ex irure nostrud ipsum laboris cillum. Ullamco enim anim pariatur amet aliqua laborum esse sit duis sint.\n\nDuis laborum ipsum cupidatat nulla non exercitation duis elit ullamco ea laboris aliqua ullamco. Consequat aliquip amet duis ad aliqua quis minim nulla nostrud. Ex ad ad pariatur magna est ad officia. Sit eu ad aute quis officia labore. Incididunt ad officia sint dolor ex exercitation aute quis ullamco. Ad sint nulla anim est id consectetur non elit consectetur mollit. In deserunt consectetur ipsum enim voluptate labore cupidatat do reprehenderit dolore fugiat eiusmod nostrud.",
-    "category": "Formalwear",
+    "category": "Womenformalwear",
     "img": "../assets/images/women/formal/mid-twist-cut-Pink/img1.png",
     "gallery": [
       "../assets/images/women/formal/mid-twist-cut-Pink/img2.png"
@@ -69,4 +70,113 @@
         "value": "xl"
       }
     ]
-  }]
+  },
+  {
+    "id": "wft1",
+    "name": "Almond Toe Court Shoes, Patent Black",
+    "description": "Almond Toe Court Shoes, Patent Black - Women's foot wear",
+    "detail": "Reprehenderit elit pariatur mollit fugiat anim fugiat Lorem officia reprehenderit do commodo commodo. Id nulla est consequat magna dolore Lorem. Mollit eu occaecat dolor minim aute veniam. Aliquip exercitation eu ea ullamco eiusmod ullamco fugiat cupidatat ex irure nostrud ipsum laboris cillum. Ullamco enim anim pariatur amet aliqua laborum esse sit duis sint.\n\nDuis laborum ipsum cupidatat nulla non exercitation duis elit ullamco ea laboris aliqua ullamco. Consequat aliquip amet duis ad aliqua quis minim nulla nostrud. Ex ad ad pariatur magna est ad officia. Sit eu ad aute quis officia labore. Incididunt ad officia sint dolor ex exercitation aute quis ullamco. Ad sint nulla anim est id consectetur non elit consectetur mollit. In deserunt consectetur ipsum enim voluptate labore cupidatat do reprehenderit dolore fugiat eiusmod nostrud.",
+    "category": "womenfootwear",
+    "img": "../assets/images/women/footwear/toe-cout-shoes/img1.png",
+    "gallery": [
+      "../assets/images/women/footwear/toe-cout-shoes/img2.png"
+    ],
+    "onSale": false,
+    "costPrice": 99,
+    "quantity": 5,
+    "inStock": true,
+    "options": [{
+        "name": "xs",
+        "value": "xs"
+      },
+      {
+        "name": "s",
+        "value": "s"
+      },
+      {
+        "name": "m",
+        "value": "m"
+      },
+      {
+        "name": "l",
+        "value": "l"
+      },
+      {
+        "name": "xl",
+        "value": "xl"
+      }
+    ]
+  },
+  {
+    "id": "wft2",
+    "name": "Suede Shoes, Blue",
+    "description": "Suede Shoes, Blue - Women's foot wear",
+    "detail": "Reprehenderit elit pariatur mollit fugiat anim fugiat Lorem officia reprehenderit do commodo commodo. Id nulla est consequat magna dolore Lorem. Mollit eu occaecat dolor minim aute veniam. Aliquip exercitation eu ea ullamco eiusmod ullamco fugiat cupidatat ex irure nostrud ipsum laboris cillum. Ullamco enim anim pariatur amet aliqua laborum esse sit duis sint.\n\nDuis laborum ipsum cupidatat nulla non exercitation duis elit ullamco ea laboris aliqua ullamco. Consequat aliquip amet duis ad aliqua quis minim nulla nostrud. Ex ad ad pariatur magna est ad officia. Sit eu ad aute quis officia labore. Incididunt ad officia sint dolor ex exercitation aute quis ullamco. Ad sint nulla anim est id consectetur non elit consectetur mollit. In deserunt consectetur ipsum enim voluptate labore cupidatat do reprehenderit dolore fugiat eiusmod nostrud.",
+    "category": "womenfootwear",
+    "img": "../assets/images/women/footwear/suede-shoes/img1.png",
+    "gallery": [
+      "../assets/images/women/footwear/suede-shoes/img2.png"
+    ],
+    "onSale": false,
+    "costPrice": 42,
+    "quantity": 4,
+    "inStock": true,
+    "options": [{
+        "name": "xs",
+        "value": "xs"
+      },
+      {
+        "name": "s",
+        "value": "s"
+      },
+      {
+        "name": "m",
+        "value": "m"
+      },
+      {
+        "name": "l",
+        "value": "l"
+      },
+      {
+        "name": "xl",
+        "value": "xl"
+      }
+    ]
+  },
+  {
+    "id": "mf1",
+    "name": "Lightweight Patch Pocket Blazer, Deer",
+    "description": "Lightweight Patch Pocket Blazer, Deer - Men formal wear",
+    "detail": "Reprehenderit elit pariatur mollit fugiat anim fugiat Lorem officia reprehenderit do commodo commodo. Id nulla est consequat magna dolore Lorem. Mollit eu occaecat dolor minim aute veniam. Aliquip exercitation eu ea ullamco eiusmod ullamco fugiat cupidatat ex irure nostrud ipsum laboris cillum. Ullamco enim anim pariatur amet aliqua laborum esse sit duis sint.\n\nDuis laborum ipsum cupidatat nulla non exercitation duis elit ullamco ea laboris aliqua ullamco. Consequat aliquip amet duis ad aliqua quis minim nulla nostrud. Ex ad ad pariatur magna est ad officia. Sit eu ad aute quis officia labore. Incididunt ad officia sint dolor ex exercitation aute quis ullamco. Ad sint nulla anim est id consectetur non elit consectetur mollit. In deserunt consectetur ipsum enim voluptate labore cupidatat do reprehenderit dolore fugiat eiusmod nostrud.",
+    "category": "Menformalwear",
+    "img": "../assets/images/men/formal/blazer/img1.png",
+    "gallery": [
+      "../assets/images/men/formal/blazer/img2.png"
+    ],
+    "onSale": false,
+    "costPrice": 175.50,
+    "quantity": 1,
+    "inStock": true,
+    "options": [{
+        "name": "xs",
+        "value": "xs"
+      },
+      {
+        "name": "s",
+        "value": "s"
+      },
+      {
+        "name": "m",
+        "value": "m"
+      },
+      {
+        "name": "l",
+        "value": "l"
+      },
+      {
+        "name": "xl",
+        "value": "xl"
+      }
+    ]
+  }
+]

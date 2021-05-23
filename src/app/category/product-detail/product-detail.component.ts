@@ -14,7 +14,6 @@ export class ProductDetailComponent implements OnInit {
   data: ProductInfo;
   quantity = 1;
   option = <DropdownItem>{};
-  relatedProducts: ProductInfo[] = [];
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
@@ -24,8 +23,6 @@ export class ProductDetailComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.data = this.dataService.getProductById(params['id']);
       this.option = this.data.options[0];
-
-      this.getRelatedProducts();
       this.scrollToTop();
 
       this.galleryImages = [];
@@ -62,17 +59,7 @@ export class ProductDetailComponent implements OnInit {
     ];
   }
 
-  getRelatedProducts() {
-    this.relatedProducts = this.dataService.getRelatedProductsByCategory(
-      this.data.id,
-      this.data.category,
-      4
-    );
-  }
-  dropdownOnChange(event: DropdownItem) {
-    console.log('dropdown value', event);
-    this.option = event;
-  }
+
 
   quantityOnChange(event: number) {
     console.log('quantity value', event);

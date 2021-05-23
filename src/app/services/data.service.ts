@@ -103,7 +103,7 @@ export class DataService {
     } else {
       this.currentProductListByCategory$.next(
         this.categoryList$.value.find(data => {
-          return data.name === this.currentCategory$.value;
+          return data.redirect === this.currentCategory$.value;
         }).products
       );
     }
@@ -113,20 +113,6 @@ export class DataService {
     return this.productList$.value.find(function(item, index, array) {
       return item.id === productId;
     });
-  }
-
-  getRelatedProductsByCategory(productId: string, category: string, amount: number) {
-    const relatedProducts: ProductInfo[] = [];
-    for (const c of this.categoryList$.value) {
-      if (c.name === category) {
-        for (let i = 0; relatedProducts.length < amount; i++) {
-          if (c.products[i] && c.products[i].id !== productId) {
-            relatedProducts.push(c.products[i]);
-          }
-        }
-      }
-    }
-    return relatedProducts;
   }
 
   private loadShoppingCart() {
@@ -139,11 +125,11 @@ export class DataService {
   addShoppingCartItem(item: ShoppingCartItem) {
     if (
       this.shoppingCartData.find(data => {
-        return data.product.id === item.product.id && data.option.value === item.option.value;
+        return data.product.id === item.product.id;
       })
     ) {
       for (const i of this.shoppingCartData) {
-        if (i.product.id === item.product.id && i.option.value === item.option.value) {
+        if (i.product.id === item.product.id) {
           i.quantity = i.quantity + item.quantity;
         }
       }
@@ -154,7 +140,7 @@ export class DataService {
     this.setLocalStorage(SHOPPING_CART_KEY, this.shoppingCartData);
     this.notifierService.notify(
       'default',
-      `Add ${item.product.name} - ${item.option.name.toUpperCase()} to cart`
+      `Add ${item.product.name} to cart`
     );
   }
 
@@ -171,13 +157,13 @@ export class DataService {
 
   deleteShoppingCartItem(item: ShoppingCartItem) {
     this.shoppingCartData = this.shoppingCartData.filter(
-      data => !(data.product.id === item.product.id && data.option.value === item.option.value)
+      data => !(data.product.id === item.product.id)
     );
     console.log('item removed:', this.shoppingCartData);
     this.setLocalStorage(SHOPPING_CART_KEY, this.shoppingCartData);
     this.notifierService.notify(
       'warning',
-      `Remove ${item.product.name} - ${item.option.name.toUpperCase()}`
+      `Remove ${item.product.name}`
     );
   }
 
