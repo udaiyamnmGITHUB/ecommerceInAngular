@@ -35,7 +35,6 @@ export class ProductDetailComponent implements OnInit {
     });
 
     this.galleryOptions = [
-      // refer to https://github.com/lukasz-galka/ngx-gallery
       // RWD settings
       {
         width: '100%',

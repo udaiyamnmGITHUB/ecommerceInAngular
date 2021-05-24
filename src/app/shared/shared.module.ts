@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { PaginationModule } from 'ngx-bootstrap';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 // Components
-import { FakeImageComponent } from './components/fake-image/fake-image.component';
 import { ProductThumbnailComponent } from './components/product-thumbnail/product-thumbnail.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
@@ -15,7 +14,6 @@ import { DigitOnlyDirective } from './directives/digit-only.directive';
 @NgModule({
   declarations: [
     // Components
-    FakeImageComponent,
     ProductThumbnailComponent,
     ProductListComponent,
     DropdownComponent,
@@ -27,7 +25,6 @@ import { DigitOnlyDirective } from './directives/digit-only.directive';
   imports: [BrowserModule, PaginationModule.forRoot(), LazyLoadImageModule],
   exports: [
     // Components
-    FakeImageComponent,
     ProductThumbnailComponent,
     ProductListComponent,
     DropdownComponent,

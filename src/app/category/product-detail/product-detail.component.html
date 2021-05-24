@@ -20,6 +20,9 @@
                 <p *ngIf="data.quantity" class="price">
                     <span>Available quantity:  {{data.quantity}}</span>
                 </p>
+                <p *ngIf="data.quantity === 0" class="price">
+                    <span>Sorry. It is out of stock</span>
+                </p>
             </div>
             <!-- Quantity Input -->
             <app-quantity-input [header]="'Quantity'" (valueChanged)="quantityOnChange($event)"></app-quantity-input>
