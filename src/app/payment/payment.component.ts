@@ -34,16 +34,6 @@ export class PaymentComponent implements OnInit {
         cardNumber: ['', [Validators.required, Validators.minLength(12)]],
         expiredDate: ['', Validators.required],
         cvc: ['', [Validators.required, Validators.minLength(3)]]
-      }),
-      deliveryInfo: this.fb.group({
-        recipientName: ['', Validators.required],
-        recipientNumber: ['', Validators.required],
-        addressLine1: ['', Validators.required],
-        addressLine2: [''],
-        city: ['', Validators.required],
-        state: ['', Validators.required],
-        postcode: ['', Validators.required],
-        country: ['', Validators.required]
       })
     });
   }
@@ -51,7 +41,6 @@ export class PaymentComponent implements OnInit {
   onSubmit() {
     if (this.form.valid) {
       this.data.customerInfo = this.form.get('customerInfo').value;
-      this.data.deliveryInfo = this.form.get('deliveryInfo').value;
       this.data.paymentInfo = this.form.get('paymentInfo').value;
       this.dataService.submitOrder(this.data);
     } else {
