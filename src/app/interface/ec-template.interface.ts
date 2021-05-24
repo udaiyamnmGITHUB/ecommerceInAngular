@@ -40,6 +40,9 @@ export interface CategoryInfo {
   count?: number;
   products?: ProductInfo[];
 }
+export interface Filters {
+  name: string;
+}
 
 export interface ShoppingCartItem {
   product: ProductInfo;

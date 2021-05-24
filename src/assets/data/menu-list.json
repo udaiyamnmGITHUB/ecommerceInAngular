@@ -2,10 +2,10 @@
     "name": "Women",
     "hasChildren": true,
     "children": [{
-      "name": "Formalwear",
+      "name": "Formals",
       "redirect": "womenformalwear"
     }, {
-      "name": "Casualwear",
+      "name": "Casuals",
       "redirect": "womencasualwear"
     }, {
       "name": "Footwear",
@@ -16,10 +16,10 @@
     "name": "Men",
     "hasChildren": true,
     "children": [{
-      "name": "formalwear",
+      "name": "Formals",
       "redirect": "menformalwear"
     }, {
-      "name": "Casualwear",
+      "name": "Casuals",
       "redirect": "mencasualwear"
     }, {
       "name": "Footwear",
