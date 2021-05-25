@@ -19,6 +19,7 @@ export class ShoppingCartComponent implements OnInit {
   discount = 0;
   products$ = this.store.pipe(select(selectProducts));
   prodListList: ProductInfo[];
+  isVoucherApplied: boolean = false;
   constructor(private dataService: DataService, private store: Store<any>) { }
 
   ngOnInit() {
@@ -46,6 +47,7 @@ export class ShoppingCartComponent implements OnInit {
         {
           let discountCanBeApplied = 5;
           this.getOrderSummary(discountCanBeApplied);
+          this.dataService.coupenApplied();
         }
       case "BOH233":
         {
@@ -67,6 +69,7 @@ export class ShoppingCartComponent implements OnInit {
     this.total = this.subTotal + this.shippingFee;
     if (discount) {
       this.discount = discount;
+      this.isVoucherApplied = true;
       this.total = this.total - discount;
     }
   }

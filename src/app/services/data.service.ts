@@ -145,6 +145,14 @@ export class DataService {
     return this.getLocalStorage(ORDER_INFO_KEY);
   }
 
+  coupenApplied(){
+    this.notifierService.notify(
+      'default',
+      `Your voucher is applied successfully!`
+    );
+    window.scroll(0, 0);
+  }
+
   submitOrder(order: OrderInfo) {
     console.log('Order Info:', order);
     this.notifierService.notify('default', 'Submit Success');

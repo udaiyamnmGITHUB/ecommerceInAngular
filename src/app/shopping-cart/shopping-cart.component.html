@@ -83,7 +83,8 @@
                     </div>
                     <div>
                         <p>Promo Code: <span class="promo">BOH232</span></p>
-                        <a class="btn expire" (click)="applyDiscount('BOH232')">Apply</a>
+                        <a *ngIf="!isVoucherApplied" class="btn expire" (click)="applyDiscount('BOH232')">Apply</a>
+                        <p *ngIf="isVoucherApplied" >This voucher is already applied!</p>
                     </div>
                 </div>
                 <!-- <div class="coupon">
