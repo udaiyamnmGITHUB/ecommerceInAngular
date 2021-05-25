@@ -16,10 +16,6 @@ export class FrontPageComponent implements OnInit {
   constructor(private dataService: DataService, private store: Store<any>) {}
 
   ngOnInit() {
-   /*  this.dataService.productList$.subscribe(data => {
-      this.productList = data;
-    }); */
-
     this.products$.subscribe(data => {
       this.productList = data;
     });

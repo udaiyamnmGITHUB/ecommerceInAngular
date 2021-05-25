@@ -1,8 +1,5 @@
 import {
-  ProductInfo,
-  CategoryInfo,
-  ShoppingCartItem,
-  OrderInfo
+  ProductInfo
 } from '../interface/ec-template.interface';
 
 export interface ProductState {

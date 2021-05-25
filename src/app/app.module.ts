@@ -16,7 +16,6 @@ import { DataService } from './services/data.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FrontPageComponent } from './front-page/front-page.component';
-import { CarouselComponent } from './front-page/carousel/carousel.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { EmptyComponent } from './empty/empty.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -31,7 +30,6 @@ import { ProductDataService } from './services/product-data-service';
     HeaderComponent,
     FooterComponent,
     FrontPageComponent,
-    CarouselComponent,
     ShoppingCartComponent,
     EmptyComponent,
     NotFoundComponent 
