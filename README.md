@@ -57,3 +57,12 @@ You can run unit test by using below commands
 * Run `npm test`.
 * Open one or more browsers and point them to [http://localhost:9876].
 * Each time a file changes the tests will be run against each browser.
+
+
+## Approach to solve the business problem
+
+* I have defined a  json structure and created .json file to list the products. 
+* Application captures this product.json on the initialization of app module and stored in NgRx store.
+* Child componets like front-page or catogery or product detail are subscribing the NgRx store to display the products and its quantity.
+* When user adds the product to the shopping cart, UI triggers the NgRX Actions to update the store with help of Reducers. So, UI state management / availablity of products are refereshed without any hassle. 
+* Local stoarege is used to store shopping cart items list.
