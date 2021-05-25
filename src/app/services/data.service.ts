@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Store, select } from '@ngrx/store';
 import {
   ProductInfo,
   CategoryInfo,
@@ -9,6 +10,8 @@ import {
 import { BehaviorSubject, forkJoin } from 'rxjs';
 import { NotifierService } from 'angular-notifier';
 import { Router } from '@angular/router';
+import { selectProducts } from '../state/product.selectors';
+import { retrievedProductList } from '../state/product.actions';
 
 const SHOPPING_CART_KEY = 'shopping-cart-data';
 const ORDER_INFO_KEY = 'order-info';
@@ -24,7 +27,8 @@ export class DataService {
   constructor(
     private http: HttpClient,
     private notifierService: NotifierService,
-    private router: Router
+    private router: Router,
+    private store: Store<any>
   ) {
     this.initData();
   }
@@ -34,19 +38,19 @@ export class DataService {
   }
 
   private initData() {
-    
+
   }
 
-  getProductListFilteredByCategory(productList:ProductInfo[], catagoryName: string): ProductInfo[] {
+  getProductListFilteredByCategory(productList: ProductInfo[], catagoryName: string): ProductInfo[] {
     if (catagoryName === 'all') {
-     return productList; 
+      return productList;
     } else {
-      return productList.filter(prod => { if (prod.category === catagoryName) return prod} );
+      return productList.filter(prod => { if (prod.category === catagoryName) return prod });
     }
   }
-  getProductByGivenId(productList:ProductInfo[], prodId: string): ProductInfo {
-   return productList.find(prod => prod.id === prodId );
-   
+  getProductByGivenId(productList: ProductInfo[], prodId: string): ProductInfo {
+    return productList.find(prod => prod.id === prodId);
+
   }
 
   private setLocalStorage(key: string, value: any) {
@@ -80,7 +84,15 @@ export class DataService {
     console.log('SC Data from LocalStorage', this.shoppingCartData);
   }
 
-  addShoppingCartItemByProdId(item: ShoppingCartItem, prodList:ProductInfo[]) {
+  updateStoreOnceAddedIntoCart(item: ShoppingCartItem, prodList: ProductInfo[]) {
+    let matchingIndex = prodList.findIndex(prod => (prod.id === item.product.id));
+    if (prodList[matchingIndex] && prodList[matchingIndex].quantity > 0) {
+      prodList[matchingIndex].quantity = prodList[matchingIndex].quantity - item.quantity;
+    }
+    this.store.dispatch(retrievedProductList({ ProductInfo: prodList }));
+  }
+
+  addShoppingCartItemByProdId(item: ShoppingCartItem, prodList: ProductInfo[]) {
     if (
       this.shoppingCartData.find(data => {
         return data.product.id === item.product.id;
@@ -97,51 +109,28 @@ export class DataService {
     }
     console.log('item added:', this.shoppingCartData);
     this.setLocalStorage(SHOPPING_CART_KEY, this.shoppingCartData);
+    this.updateStoreOnceAddedIntoCart(item, prodList);
     this.notifierService.notify(
       'default',
       `Add ${item.product.name} to cart`
     );
   }
 
-  addShoppingCartItem(item: ShoppingCartItem) {
-    if (
-      this.shoppingCartData.find(data => {
-        return data.product.id === item.product.id;
-      })
-    ) {
-      for (const i of this.shoppingCartData) {
-        if (i.product.id === item.product.id) {
-          i.quantity = i.quantity + item.quantity;
-        }
-      }
-    } else {
-      this.shoppingCartData = [...this.shoppingCartData, item];
+  updateStoreOnceDeletedFromCart(item: ShoppingCartItem, prodList: ProductInfo[]) {
+    let matchingIndex = prodList.findIndex(prod => (prod.id === item.product.id));
+    if (prodList[matchingIndex] && prodList[matchingIndex].quantity > 0) {
+      prodList[matchingIndex].quantity = prodList[matchingIndex].quantity +  item.quantity;
     }
-    console.log('item added:', this.shoppingCartData);
-    this.setLocalStorage(SHOPPING_CART_KEY, this.shoppingCartData);
-    this.notifierService.notify(
-      'default',
-      `Add ${item.product.name} to cart`
-    );
+    this.store.dispatch(retrievedProductList({ ProductInfo: prodList }));
   }
 
-  editShoppingCartItem(item: ShoppingCartItem) {
-    this.shoppingCartData = this.shoppingCartData.map((data: ShoppingCartItem) => {
-      if (data.product.id === item.product.id) {
-        data = Object.assign({}, data, item);
-      }
-      return data;
-    });
-    console.log('item edited:', this.shoppingCartData);
-    this.setLocalStorage(SHOPPING_CART_KEY, this.shoppingCartData);
-  }
-
-  deleteShoppingCartItem(item: ShoppingCartItem) {
+  deleteShoppingCartItem(item: ShoppingCartItem, prodList: ProductInfo[]) {
     this.shoppingCartData = this.shoppingCartData.filter(
       data => !(data.product.id === item.product.id)
     );
     console.log('item removed:', this.shoppingCartData);
     this.setLocalStorage(SHOPPING_CART_KEY, this.shoppingCartData);
+    this.updateStoreOnceDeletedFromCart(item, prodList);
     this.notifierService.notify(
       'warning',
       `Remove ${item.product.name}`

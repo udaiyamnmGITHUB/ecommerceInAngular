@@ -4,10 +4,7 @@ import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {
-    ProductInfo,
-    CategoryInfo,
-    ShoppingCartItem,
-    OrderInfo
+    ProductInfo
   } from '../interface/ec-template.interface';
 
 @Injectable({ providedIn: 'root' })

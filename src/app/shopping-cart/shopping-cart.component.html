@@ -20,7 +20,7 @@
                         <p class="item-number">#{{item.product.id}}</p>
                         <h3 class="item-name">{{item.product.name}} - {{item.option.name}}</h3>
                         <p class="qty">
-                            <input type="text" class="qty-input" [(ngModel)]="item.quantity" (keyup)="updateItem(item)">
+                            <input type="text" class="qty-input" [(ngModel)]="item.quantity" [disabled]="true" >
                             x ${{item.product.costPrice}}
                         </p>
                         <p class="stock-status" [class.out-stock]="!item.product.inStock">{{item.product.inStock? "In Stock": "Out of Stock"}}</p>

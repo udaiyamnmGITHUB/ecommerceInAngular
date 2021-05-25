@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+
+import { selectProducts} from '../state/product.selectors';
 import { DataService } from '../services/data.service';
-import { ShoppingCartItem, OrderInfo } from '../interface/ec-template.interface';
+import { ShoppingCartItem, OrderInfo, ProductInfo } from '../interface/ec-template.interface';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -15,21 +18,20 @@ export class ShoppingCartComponent implements OnInit {
   taxPercentage = 5; // 5%
   tax = 0;
   total = 0;
-
-  constructor(private dataService: DataService) {}
+  products$ = this.store.pipe(select(selectProducts));
+  prodListList: ProductInfo[];
+  constructor(private dataService: DataService, private store: Store<any>) {}
 
   ngOnInit() {
     this.data = this.dataService.shoppingCartData;
-    this.getOrderSummary();
-  }
-
-  updateItem(item: ShoppingCartItem) {
-    this.dataService.editShoppingCartItem(item);
+    this.products$.subscribe(prodList => {
+      this.prodListList = prodList;
+    });
     this.getOrderSummary();
   }
 
   removeItem(item: ShoppingCartItem) {
-    this.dataService.deleteShoppingCartItem(item);
+    this.dataService.deleteShoppingCartItem(item, this.prodListList);
     this.data = this.dataService.shoppingCartData;
     this.getOrderSummary();
   }
