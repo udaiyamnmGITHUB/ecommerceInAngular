@@ -2,32 +2,32 @@
     <div class="row">
         <!-- Gallery -->
         <div class="col-sm-6 col-xs-12">
-            <div *ngIf="data" class="gallery">
+            <div *ngIf="selectedProduct" class="gallery">
                 <ngx-gallery  [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
             </div>
         </div>
         <!-- Product Info -->
         <div class="col-sm-6 col-xs-12">
             <div class="caption">
-                <h2>{{data.name}}</h2>
-                <h3>{{data.description}}</h3>
+                <h2>{{selectedProduct.name}}</h2>
+                <h3>{{selectedProduct.description}}</h3>
                <p class="price">
-                    <span>Price:  ${{data.costPrice}}</span>
+                    <span>Price:  ${{selectedProduct.costPrice}}</span>
                 </p>
                 
             </div>
             <div>
-                <p *ngIf="data.quantity" class="price">
-                    <span>Available quantity:  {{data.quantity}}</span>
+                <p *ngIf="selectedProduct.quantity" class="price">
+                    <span>Available quantity:  {{selectedProduct.quantity}}</span>
                 </p>
-                <p *ngIf="data.quantity === 0" class="price">
+                <p *ngIf="selectedProduct.quantity === 0" class="price">
                     <span>Sorry. It is out of stock</span>
                 </p>
             </div>
             <!-- Quantity Input -->
-            <app-quantity-input [header]="'Quantity'" (valueChanged)="quantityOnChange($event)"></app-quantity-input>
+            <app-quantity-input [header]="'Quantity'" [maxValue]="selectedProduct.quantity" (valueChanged)="quantityOnChange($event)"></app-quantity-input>
             <!-- Add to Cart -->
-            <button type="button" class="btn btn-primary add-cart-btn" [class.btn-disabled]="data.quantity === 0" [disabled]="data.quantity === 0" (click)="addToCart()">{{(data.quantity === 0)? "Out of Stock" : "Add to Cart"}}</button>
+            <button type="button" class="btn btn-primary add-cart-btn" [class.btn-disabled]="selectedProduct.quantity === 0" [disabled]="selectedProduct.quantity === 0" (click)="addToCart()">{{(selectedProduct.quantity === 0)? "Out of Stock" : "Add to Cart"}}</button>
         </div>
     </div>
     <hr>
@@ -36,7 +36,7 @@
         <div class="col-md-12">
             <h3 class="des-header">Description</h3>
             <div class="des-content">
-                {{data.detail}}
+                {{selectedProduct.detail}}
             </div>
         </div>
     </div>

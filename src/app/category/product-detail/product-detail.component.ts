@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
 import { ProductInfo } from 'src/app/interface/ec-template.interface';
 import { DataService } from 'src/app/services/data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DropdownItem } from 'src/app/interface/universal.interface';
 
 import { Store, select } from '@ngrx/store';
@@ -15,7 +15,7 @@ import { selectProducts} from '../../state/product.selectors';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-  data: ProductInfo;
+  selectedProduct: ProductInfo;
   quantity = 1;
   option = <DropdownItem>{};
   galleryOptions: NgxGalleryOptions[];
@@ -23,22 +23,22 @@ export class ProductDetailComponent implements OnInit {
   products$ = this.store.pipe(select(selectProducts));
   prodListList: ProductInfo[];
 
-  constructor(private dataService: DataService, private route: ActivatedRoute, private store: Store<any>) {}
+  constructor(private dataService: DataService, private route: ActivatedRoute, private router: Router, private store: Store<any>) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.products$.subscribe(prodList => {
         this.prodListList = prodList;
-        this.data = this.dataService.getProductByGivenId(prodList, params['id']);
+        this.selectedProduct = this.dataService.getProductByGivenId(prodList, params['id']);
       });
-      this.option = this.data.options[0];
+      this.option = this.selectedProduct.options[0];
       this.scrollToTop();
 
       this.galleryImages = [];
       // insert main image
-      this.galleryImages.push({ small: this.data.img, medium: this.data.img, big: this.data.img });
+      this.galleryImages.push({ small: this.selectedProduct.img, medium: this.selectedProduct.img, big: this.selectedProduct.img });
       // insert gallery images
-      for (const img of this.data.gallery) {
+      for (const img of this.selectedProduct.gallery) {
         this.galleryImages.push({ small: img, medium: img, big: img });
       }
     });
@@ -74,10 +74,11 @@ export class ProductDetailComponent implements OnInit {
 
   addToCart() {
     this.dataService.addShoppingCartItemByProdId({
-      product: this.data,
+      product: this.selectedProduct,
       quantity: this.quantity,
       option: this.option
     }, this.prodListList);
+     this.router.navigateByUrl("/shopping-cart");
   }
 
   scrollToTop() {

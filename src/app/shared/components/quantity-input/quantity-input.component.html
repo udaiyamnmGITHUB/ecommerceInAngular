@@ -10,7 +10,7 @@
     <input #q_input type="text" class="form-control input-number quantity-input" [value]="value" (keyup)="onChanged(q_input.value)">
     <!-- + button -->
     <span class="input-group-btn">
-        <button type="button" class="btn btn-default btn-number" (click)="onPlus()">
+        <button type="button" class="btn btn-default btn-number" [disabled]="value === maxValue" (click)="onPlus()">
             <span class="glyphicon glyphicon-plus"></span>
         </button>
     </span>

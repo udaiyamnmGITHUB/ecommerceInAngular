@@ -20,7 +20,6 @@ import { CarouselComponent } from './front-page/carousel/carousel.component';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { EmptyComponent } from './empty/empty.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { PaymentComponent } from './payment/payment.component';
 
 
 import { productsReducer } from './state/product.reducer';
@@ -35,8 +34,7 @@ import { ProductDataService } from './services/product-data-service';
     CarouselComponent,
     ShoppingCartComponent,
     EmptyComponent,
-    NotFoundComponent,
-    PaymentComponent  
+    NotFoundComponent 
   ],
   imports: [
     BrowserModule,

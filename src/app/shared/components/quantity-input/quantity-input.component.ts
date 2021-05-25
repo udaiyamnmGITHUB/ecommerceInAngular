@@ -9,6 +9,8 @@ export class QuantityInputComponent implements OnInit {
   @Input()
   defaultValue = 1;
   @Input()
+  maxValue: number;
+  @Input()
   header: string;
   @Output()
   valueChanged = new EventEmitter();
