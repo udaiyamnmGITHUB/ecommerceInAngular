@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
 // Modules
 import { SharedModule } from './shared/shared.module';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -21,6 +22,10 @@ import { EmptyComponent } from './empty/empty.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PaymentComponent } from './payment/payment.component';
 
+
+import { productsReducer } from './state/product.reducer';
+import { ProductDataService } from './services/product-data-service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +36,7 @@ import { PaymentComponent } from './payment/payment.component';
     ShoppingCartComponent,
     EmptyComponent,
     NotFoundComponent,
-    PaymentComponent
+    PaymentComponent  
   ],
   imports: [
     BrowserModule,
@@ -42,6 +47,7 @@ import { PaymentComponent } from './payment/payment.component';
     SharedModule,
     TooltipModule.forRoot(),
     CategoryModule,
+    StoreModule.forRoot({products: productsReducer}),
     NotifierModule.withConfig({
       position: {
         horizontal: {
@@ -53,7 +59,7 @@ import { PaymentComponent } from './payment/payment.component';
       }
     })
   ],
-  providers: [DataService],
+  providers: [DataService, ProductDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -2,7 +2,7 @@
     <p class="global-primary dark-primary">Filters</p>
     <ul *ngIf="filtersList" id="sidebar">
         <li *ngFor="let filter of filtersList">
-            <a>{{filter}}</a>
+            <a>{{filter.name}}</a>
         </li>
     </ul>
 </div>

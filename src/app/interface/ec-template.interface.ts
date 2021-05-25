@@ -28,7 +28,6 @@ export interface ProductInfo {
   gallery?: string[];
   onSale: boolean;
   costPrice: string;
-  salePrice?: string;
   options?: DropdownItem[];
   inStock: boolean;
   quantity?:number;
@@ -40,7 +39,7 @@ export interface CategoryInfo {
   count?: number;
   products?: ProductInfo[];
 }
-export interface Filters {
+export interface Filter {
   name: string;
 }
 
