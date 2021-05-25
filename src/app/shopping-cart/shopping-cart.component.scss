@@ -228,3 +228,24 @@ hr {
   float: right;
   letter-spacing: 1px;
 }
+
+.coupon {
+  border: 5px dotted #bbb;
+  width: 80%;
+  border-radius: 15px;
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+.promo {
+  background: #ccc;
+  padding: 3px;
+}
+
+.expire {
+  color: red;
+}
+
+.voucher-text {
+  font-size:12 px
+}

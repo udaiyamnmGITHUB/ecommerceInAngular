@@ -20,10 +20,11 @@
                         <p class="item-number">#{{item.product.id}}</p>
                         <h3 class="item-name">{{item.product.name}} - {{item.option.name}}</h3>
                         <p class="qty">
-                            <input type="text" class="qty-input" [(ngModel)]="item.quantity" [disabled]="true" >
+                            <input type="text" class="qty-input" [(ngModel)]="item.quantity" [disabled]="true">
                             x ${{item.product.costPrice}}
                         </p>
-                        <p class="stock-status" [class.out-stock]="!item.product.inStock">{{item.product.inStock? "In Stock": "Out of Stock"}}</p>
+                        <p class="stock-status" [class.out-stock]="!item.product.inStock">{{item.product.inStock? "In
+                            Stock": "Out of Stock"}}</p>
                     </div>
                     <!-- Total Price -->
                     <div class="cart-section price-total">
@@ -31,7 +32,8 @@
                     </div>
                     <div class="cart-section remove-wrap">
                         <!-- <a class="remove-button" (click)="removeItem(item)">x</a> -->
-                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true" (click)="removeItem(item)" tooltip="Remove">&times;</span></button>
+                        <button type="button" class="close" aria-label="Close"><span aria-hidden="true"
+                                (click)="removeItem(item)" tooltip="Remove">&times;</span></button>
                     </div>
                 </div>
             </li>
@@ -58,8 +60,8 @@
                         <span class="pull-right">${{shippingFee}}</span>
                     </div>
                     <div class="price-info">
-                        <span class="pull-left">Tax({{taxPercentage}}%)</span>
-                        <span class="pull-right">${{tax}}</span>
+                        <span class="pull-left">Discount</span>
+                        <span class="pull-right">${{discount}}</span>
                     </div>
                     <hr>
                     <div class="price-info total">
@@ -68,6 +70,40 @@
                     </div>
                     <a class="btn btn-success btn-check-out" (click)="onCheckOut()">CHECK OUT</a>
                 </div>
+            </div>
+        </section>
+        <section class="order-summary">
+            <div class="section-header">
+                <h3>Available Vouchers</h3>
+            </div>
+            <div class="section-body">
+                <div class="coupon">
+                    <div style="background-color:white">
+                        <h2 class="voucher-text"><b>£5.00 OFF YOUR PURCHASE</b></h2>
+                    </div>
+                    <div>
+                        <p>Promo Code: <span class="promo">BOH232</span></p>
+                        <a class="btn expire" (click)="applyDiscount('BOH232')">Apply</a>
+                    </div>
+                </div>
+                <!-- <div class="coupon">
+                    <div style="background-color:white">
+                        <h2 class="voucher-text"><b>£10.00 off when you spend over £50.00</b></h2>
+                    </div>
+                    <div>
+                        <p>Promo Code: <span class="promo">BOH233</span></p>
+                        <a class="btn expire" (click)="applyDiscount('BOH233')">Apply</a>
+                    </div>
+                </div>
+                <div class="coupon">
+                    <div style="background-color:white">
+                        <h2 class="voucher-text"><b>£15.00 off when you have bought at least one footwear item and spent over £75.00</b></h2>
+                    </div>
+                    <div>
+                        <p>Promo Code: <span class="promo">BOH234</span></p>
+                        <a class="btn expire" (click)="applyDiscount('BOH232')">Apply</a>
+                    </div>
+                </div> -->
             </div>
         </section>
     </div>
