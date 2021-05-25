@@ -12,7 +12,7 @@
     "onSale": true,
     "costPrice": 270,
     "quantity": 10,
-    "inStock": true,
+    "addedIntoCart": false,
     "options": [{
         "name": "xs",
         "value": "xs"
@@ -32,7 +32,7 @@
     "onSale": true,
     "costPrice": 540,
     "quantity": 5,
-    "inStock": true,
+    "addedIntoCart": false,
     "options": [{
       "name": "xs",
       "value": "xs"
@@ -51,7 +51,7 @@
     "onSale": true,
     "costPrice": 167,
     "quantity": 6,
-    "inStock": true,
+    "addedIntoCart": false,
     "options": [{
       "name": "xs",
       "value": "xs"
@@ -70,7 +70,7 @@
     "onSale": true,
     "costPrice": 99,
     "quantity": 5,
-    "inStock": true,
+    "addedIntoCart": false,
     "options": [{
       "name": "xs",
       "value": "xs"
@@ -89,7 +89,7 @@
     "onSale": true,
     "costPrice": 42,
     "quantity": 4,
-    "inStock": true,
+    "addedIntoCart": false,
     "options": [{
       "name": "xs",
       "value": "xs"
@@ -108,7 +108,7 @@
     "onSale": true,
     "costPrice": 175.50,
     "quantity": 1,
-    "inStock": true,
+    "addedIntoCart": false,
     "options": [{
       "name": "xs",
       "value": "xs"
@@ -127,7 +127,7 @@
     "onSale": true,
     "costPrice": 75,
     "quantity": 2,
-    "inStock": true,
+    "addedIntoCart": false,
     "options": [{
       "name": "xs",
       "value": "xs"
@@ -146,7 +146,7 @@
     "onSale": true,
     "costPrice": 49.99,
     "quantity": 5,
-    "inStock": true,
+    "addedIntoCart": false,
     "options": [{
       "name": "xs",
       "value": "xs"
@@ -165,7 +165,7 @@
     "onSale": true,
     "costPrice": 39.99,
     "quantity": 3,
-    "inStock": true,
+    "addedIntoCart": false,
     "options": [{
       "name": "xs",
       "value": "xs"
@@ -184,7 +184,7 @@
     "onSale": true,
     "costPrice": 34,
     "quantity": 12,
-    "inStock": true,
+    "addedIntoCart": false,
     "options": [{
       "name": "xs",
       "value": "xs"
@@ -203,7 +203,7 @@
     "onSale": true,
     "costPrice": 19,
     "quantity": 6,
-    "inStock": true,
+    "addedIntoCart": false,
     "options": [{
       "name": "xs",
       "value": "xs"
@@ -222,7 +222,7 @@
     "onSale": true,
     "costPrice": 19,
     "quantity": 0,
-    "inStock": true,
+    "addedIntoCart": false,
     "options": [{
       "name": "xs",
       "value": "xs"

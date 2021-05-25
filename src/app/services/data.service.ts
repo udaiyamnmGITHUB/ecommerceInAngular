@@ -80,6 +80,29 @@ export class DataService {
     console.log('SC Data from LocalStorage', this.shoppingCartData);
   }
 
+  addShoppingCartItemByProdId(item: ShoppingCartItem, prodList:ProductInfo[]) {
+    if (
+      this.shoppingCartData.find(data => {
+        return data.product.id === item.product.id;
+      })
+    ) {
+      for (const i of this.shoppingCartData) {
+        if (i.product.id === item.product.id) {
+          i.quantity = i.quantity + item.quantity;
+        }
+      }
+    } else {
+      let addedShopItem = {}
+      this.shoppingCartData = [...this.shoppingCartData, item];
+    }
+    console.log('item added:', this.shoppingCartData);
+    this.setLocalStorage(SHOPPING_CART_KEY, this.shoppingCartData);
+    this.notifierService.notify(
+      'default',
+      `Add ${item.product.name} to cart`
+    );
+  }
+
   addShoppingCartItem(item: ShoppingCartItem) {
     if (
       this.shoppingCartData.find(data => {

@@ -21,13 +21,15 @@ export class ProductDetailComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
   products$ = this.store.pipe(select(selectProducts));
+  prodListList: ProductInfo[];
 
   constructor(private dataService: DataService, private route: ActivatedRoute, private store: Store<any>) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.products$.subscribe(data => {
-        this.data = this.dataService.getProductByGivenId(data, params['id']);
+      this.products$.subscribe(prodList => {
+        this.prodListList = prodList;
+        this.data = this.dataService.getProductByGivenId(prodList, params['id']);
       });
       this.option = this.data.options[0];
       this.scrollToTop();
@@ -71,11 +73,11 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart() {
-    this.dataService.addShoppingCartItem({
+    this.dataService.addShoppingCartItemByProdId({
       product: this.data,
       quantity: this.quantity,
       option: this.option
-    });
+    }, this.prodListList);
   }
 
   scrollToTop() {
