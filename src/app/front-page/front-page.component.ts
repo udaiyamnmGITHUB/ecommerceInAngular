@@ -22,6 +22,6 @@ export class FrontPageComponent implements OnInit {
 
     this.products$.subscribe(data => {
       this.productList = data;
-    })
+    });
   }
 }

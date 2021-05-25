@@ -18,10 +18,6 @@ const ORDER_INFO_KEY = 'order-info';
 })
 export class DataService {
   private headers = new HttpHeaders();
-  productList$ = new BehaviorSubject<ProductInfo[]>([]);
-  categoryList$ = new BehaviorSubject<CategoryInfo[]>([]);
-  currentCategory$ = new BehaviorSubject<string>('all');
-  currentProductListByCategory$ = new BehaviorSubject<ProductInfo[]>([]);
 
   shoppingCartData: ShoppingCartItem[] = [];
 
@@ -31,11 +27,6 @@ export class DataService {
     private router: Router
   ) {
     this.initData();
-    this.currentCategory$.subscribe(() => {
-      if (this.categoryList$.value.length !== 0) {
-        this.getProductListByCategory();
-      }
-    });
   }
 
   setHeaders(key: string, value: string) {
@@ -43,15 +34,19 @@ export class DataService {
   }
 
   private initData() {
-    this.loadShoppingCart();
-    forkJoin(this.getAllProductList(), this.getCategoryList()).subscribe((data: any) => {
-      this.productList$.next(data[0]);
-      console.log('products:', this.productList$.value);
-      this.categoryList$.next(data[1]);
-      console.log('categories:', this.categoryList$.value);
-      this.setCategoryCount();
-      this.getProductListByCategory();
-    });
+    
+  }
+
+  getProductListFilteredByCategory(productList:ProductInfo[], catagoryName: string): ProductInfo[] {
+    if (catagoryName === 'all') {
+     return productList; 
+    } else {
+      return productList.filter(prod => { if (prod.category === catagoryName) return prod} );
+    }
+  }
+  getProductByGivenId(productList:ProductInfo[], prodId: string): ProductInfo {
+   return productList.find(prod => prod.id === prodId );
+   
   }
 
   private setLocalStorage(key: string, value: any) {
@@ -73,46 +68,9 @@ export class DataService {
   private getCategoryList() {
     return this.http.get('./assets/data/category-list.json', { headers: this.headers });
   }
-  private setCategoryCount() {
-    // reset
-    for (const category of this.categoryList$.value) {
-      category.count = 0;
-      category.products = [];
-    }
-    for (const product of this.productList$.value) {
-      for (const c of this.categoryList$.value) {
-        if (product.category === c.name) {
-          c.count++;
-          c.products.push(product);
-        }
-      }
-    }
-  }
-
-  setCurrentCategory(category: string) {
-    this.currentCategory$.next(category);
-  }
 
   getMenuList() {
     return this.http.get('./assets/data/menu-list.json', { headers: this.headers });
-  }
-
-  private getProductListByCategory() {
-    if (this.currentCategory$.value === 'all') {
-      this.currentProductListByCategory$.next(this.productList$.value);
-    } else {
-      this.currentProductListByCategory$.next(
-        this.categoryList$.value.find(data => {
-          return data.redirect === this.currentCategory$.value;
-        }).products
-      );
-    }
-  }
-
-  getProductById(productId: string) {
-    return this.productList$.value.find(function(item, index, array) {
-      return item.id === productId;
-    });
   }
 
   private loadShoppingCart() {

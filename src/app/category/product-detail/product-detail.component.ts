@@ -5,6 +5,10 @@ import { DataService } from 'src/app/services/data.service';
 import { ActivatedRoute } from '@angular/router';
 import { DropdownItem } from 'src/app/interface/universal.interface';
 
+import { Store, select } from '@ngrx/store';
+
+import { selectProducts} from '../../state/product.selectors';
+
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
@@ -16,12 +20,15 @@ export class ProductDetailComponent implements OnInit {
   option = <DropdownItem>{};
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
+  products$ = this.store.pipe(select(selectProducts));
 
-  constructor(private dataService: DataService, private route: ActivatedRoute) {}
+  constructor(private dataService: DataService, private route: ActivatedRoute, private store: Store<any>) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.data = this.dataService.getProductById(params['id']);
+      this.products$.subscribe(data => {
+        this.data = this.dataService.getProductByGivenId(data, params['id']);
+      });
       this.option = this.data.options[0];
       this.scrollToTop();
 

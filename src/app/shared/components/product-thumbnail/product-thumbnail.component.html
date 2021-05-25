@@ -2,7 +2,11 @@
     <img [defaultImage]="defaultImage" [lazyLoad]="data.img" [offset]="0">
     <div class="caption">
         <h2>{{data.name}}</h2>
-       <p class="price">
+       
+        <p class="price">
+            <span>Available Qty: {{data.quantity}}</span>
+        </p>
+        <p class="price">
             <span>${{data.costPrice}}</span>
         </p>
     </div>
